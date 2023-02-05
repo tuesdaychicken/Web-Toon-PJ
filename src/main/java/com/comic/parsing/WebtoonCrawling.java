@@ -75,8 +75,8 @@ public class WebtoonCrawling {
 				// 웹툰 연령
 				
 				if(webtoon.select("div.col:eq("+i+") li:eq("+j+") em.ico_break").text().equals("휴재")) {
-					String webtoonRemarks = webtoon.select("div.col:eq("+i+") li:eq("+j+") em.ico_break").text();
-					map.put("webtoonRemarks", webtoonRemarks);
+					String webtoonPause = webtoon.select("div.col:eq("+i+") li:eq("+j+") em.ico_break").text();
+					map.put("webtoonRemarks", webtoonPause);
 					//휴재여부 판단
 				} else {
 					map.put("webtoonRemarks", "");
