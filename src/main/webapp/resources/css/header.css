@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar_flex{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.header{
+    width: 1000px;
+}
+
+.header_wrap{
+    width: 1000px;
+    height: 100%;
+    background-color: blueviolet;    
+}
+
+.menu{
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.menu_ul{
+    display: flex;
+}
+
+.submenu_ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+    margin-left: 5px;
+}
+
+.container{
+    display: flex;
+}
+
+.webtoon{
+    width: 750px;
+    height: 100%;
+    background-color: yellow;
+
+}
+
+.aside{
+    width: 250px;
+    height: 100%;
+    background-color: chartreuse;
+    
+}
+
+.asideUpload{
+    width: 240px;
+    height: 40px;
+    margin-top: 8px;
+    background-color: green;
+}
+
+.asideAd{
+    width: 240px;
+    height: 240px;
+    margin-top: 8px;
+    background-color: tomato;
+}
+
+.asideRolling{
+    width: 240px;
+    height: 97px;
+    margin-top: 8px;
+    background-color: thistle;
+}
+
+.asideBox{
+    width: 240px;
+    height: 200px;
+    margin-top: 8px;
+    background-color: aqua;
+}
+
+.asideBanner{
+    width: 240px;
+    height: 86px;
+    margin-top: 8px;
+    background-color: red;
+}
+
+.asideButton{
+    width: 240px;
+    height: 35px;
+    margin-top: 8px;
+    background-color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

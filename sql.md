@@ -10,7 +10,7 @@ DROP TABLE WEBTOON_WEEK;
 DROP TABLE WEBTOON_GENRE;
 DROP TABLE WEBTOON_WRITER;
 
---동훈아 사랑한다
+
 --------------------------------------------------------------------------------
 
 CREATE TABLE NAVER_MEMBER(
