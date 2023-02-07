@@ -1,5 +1,13 @@
 package com.comic.service;
 
-public interface WebtoonListService {
-	
+import java.util.Map;
+
+import com.comic.domain.NaverWebtoonTestDAO;
+
+public class WebtoonListService implements NaverWebtoonTestDAO{
+
+	@Override
+	public void webtoon(Map<String, String> dataValues) {
+		
+	}
 }
