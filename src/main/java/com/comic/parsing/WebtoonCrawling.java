@@ -27,20 +27,20 @@ public class WebtoonCrawling {
 			int webtoonNum = webtoon.select("div.col:eq("+i+") a.title").size();
 			// i번째 요일 웹툰 갯수
 
-			List<String> list = null;
+			List<Map<String,String>> list = null;
 			
 			for (int j = 0; j < webtoonNum; j++) {
 			
 				list = new ArrayList<>();
 				
-				Map<String, String> map = new HashMap<>();
+				Map<String, String> crawlingData = new HashMap<>();
 				
 				String webtoonWeek = webtoon.select("div.col:eq("+i+") h4").text();
-				map.put("webtoonWeek", webtoonWeek);
+				crawlingData.put("webtoonWeek", webtoonWeek);
 				//해당요일
 
 				String webtoonCover = webtoon.select("div.col:eq("+i+") li:eq("+j+") img").attr("src");
-				map.put("webtoonCover", webtoonCover);
+				crawlingData.put("webtoonCover", webtoonCover);
 				// 웹툰 커버 이미지
 				
 				String url = webtoon.select("div.col:eq("+i+") li:eq("+j+") a").attr("href");
@@ -51,58 +51,59 @@ public class WebtoonCrawling {
 				Elements webtoonDetail = doc2.select("div.comicinfo");
 				
 				String webtoonIntrdCover = webtoonDetail.select("img").attr("src");
-				map.put("webtoonIntrdCover", webtoonIntrdCover);
+				crawlingData.put("webtoonIntrdCover", webtoonIntrdCover);
 				// 웹툰 디테일 표지
 						
 				String webtoonTitle = webtoonDetail.select("div.detail span.title").text();
-				map.put("webtoonTitle", webtoonTitle);
+				crawlingData.put("webtoonTitle", webtoonTitle);
 				// 웹툰 제목
 						
 				String webtoonWriter = webtoonDetail.select("div.detail span.wrt_nm").text();
-				map.put("webtoonWriter", webtoonWriter);
+				crawlingData.put("webtoonWriter", webtoonWriter);
 				// 웹툰 작가
 				
 				String webtoonInfo = webtoonDetail.select("div.detail p").get(0).text();
-				map.put("webtoonInfo", webtoonInfo);
+				crawlingData.put("webtoonInfo", webtoonInfo);
 				// 웹툰 소개글
 						
 				String webtoonGenre = webtoonDetail.select("div.detail p.detail_info span.genre").text();
-				map.put("webtoonGenre", webtoonGenre);
+				crawlingData.put("webtoonGenre", webtoonGenre);
 				// 웹툰 장르
 						
 				String webtoonAge = webtoonDetail.select("div.detail p.detail_info span.age").text();
-				map.put("webtoonAge", webtoonAge);
+				crawlingData.put("webtoonAge", webtoonAge);
 				// 웹툰 연령
 				
 				if(webtoon.select("div.col:eq("+i+") li:eq("+j+") em.ico_break").text().equals("휴재")) {
 					String webtoonPause = webtoon.select("div.col:eq("+i+") li:eq("+j+") em.ico_break").text();
-					map.put("webtoonRemarks", webtoonPause);
+					crawlingData.put("webtoonRemarks", webtoonPause);
 					//휴재여부 판단
 				} else {
-					map.put("webtoonRemarks", "");
+					crawlingData.put("webtoonRemarks", "");
 				}
 					
 				if(webtoon.select("div.col:eq("+i+") li:eq("+j+") span.mark_adult_thumb").text().equals("18세 이상 이용 가능")) {
 					String webtoonAdult = webtoon.select("div.col:eq("+i+") li:eq("+j+") span.mark_adult_thumb").text();
-					map.put("webtoonAdult", webtoonAdult);
+					crawlingData.put("webtoonAdult", webtoonAdult);
 					//성인웹툰 여부 판단
 				} else {
-					map.put("webtoonAdult", "");
+					crawlingData.put("webtoonAdult", "");
 				}
 					
 				if(webtoon.select("div.col:eq("+i+") li:eq("+j+") span.ico_new2").text().equals("NEW")) {
 					String webtoonNew = webtoon.select("div.col:eq("+i+") li:eq("+j+") span.ico_new2").text();
-					map.put("webtoonNew", webtoonNew);
+					crawlingData.put("webtoonNew", webtoonNew);
 					//새로운 웹툰 여부 판단
 				} else {
-					map.put("webtoonNew", "");
+					crawlingData.put("webtoonNew", "");
 				}
 				
 				
-				String json = new Gson().toJson(map);
+//				String json = new Gson().toJson(crawlingData); 제이슨으로 변형 히힣
 				
-				list.add(json);
+				list.add(crawlingData);
 				System.out.println(list.toString());
+				
 			}
 			
 			
