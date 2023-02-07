@@ -9,8 +9,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import com.google.gson.Gson;
-
 public class WebtoonCrawling {
 
 	public static void main(String[] args) throws Exception {
@@ -22,8 +20,8 @@ public class WebtoonCrawling {
 		int week = webtoon.select("div.col h4").size();
 		// 요일 갯수
 		
-		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-
+		List<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
+		
 		for (int i = 0; i < week; i++) {
 			
 			int webtoonNum = webtoon.select("div.col:eq("+i+") a.title").size();
@@ -33,7 +31,7 @@ public class WebtoonCrawling {
 			for (int j = 0; j < webtoonNum; j++) {
 			
 				
-				Map<String, String> crawlingData = new HashMap<>();
+				HashMap<String, String> crawlingData = new HashMap<>();
 				
 				String webtoonWeek = webtoon.select("div.col:eq("+i+") h4").text();
 				crawlingData.put("webtoonWeek", webtoonWeek);
