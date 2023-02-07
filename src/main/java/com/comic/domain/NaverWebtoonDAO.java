@@ -14,7 +14,7 @@ import lombok.Data;
 	);*/
 
 @Data
-public class WebtoonListDAO {
+public class NaverWebtoonDAO {
 	private int webtoonId;
 	private String webtoonTitle;
 	private String webtoonAge;
