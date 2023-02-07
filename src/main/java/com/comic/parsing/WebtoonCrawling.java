@@ -21,17 +21,17 @@ public class WebtoonCrawling {
 
 		int week = webtoon.select("div.col h4").size();
 		// 요일 갯수
+		
+		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
 
 		for (int i = 0; i < week; i++) {
 			
 			int webtoonNum = webtoon.select("div.col:eq("+i+") a.title").size();
 			// i번째 요일 웹툰 갯수
 
-			List<Map<String,String>> list = null;
 			
 			for (int j = 0; j < webtoonNum; j++) {
 			
-				list = new ArrayList<>();
 				
 				Map<String, String> crawlingData = new HashMap<>();
 				
